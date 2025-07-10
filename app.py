@@ -1,18 +1,14 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import joblib
 import os
 
 @st.cache(allow_output_mutation=True)
 def load_model_components():
-    with open("random_forest_model.pkl", "rb") as f:
-        model = pickle.load(f)
-    with open("scaler.pkl", "rb") as f:
-        scaler = pickle.load(f)
-    with open("label_encoders.pkl", "rb") as f:
-        label_encoders = pickle.load(f)
+    model = joblib.load("random_forest_model.pkl")
+    scaler = joblib.load("scaler.pkl")
+    label_encoders = joblib.load("label_encoders.pkl")
     return model, scaler, label_encoders
-
 
 # ✅ Define feature order
 FEATURE_NAMES = [
