@@ -3,7 +3,7 @@ import pandas as pd
 import joblib
 import os
 
-@st.cache(allow_output_mutation=True)
+@st.cache_resource
 def load_model_components():
     model = joblib.load("random_forest_model.pkl")
     scaler = joblib.load("scaler.pkl")
