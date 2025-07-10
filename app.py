@@ -3,8 +3,7 @@ import pandas as pd
 import pickle
 import os
 
-# ✅ Load model components once
-@st.cache_resource
+@st.cache(allow_output_mutation=True)
 def load_model_components():
     with open("random_forest_model.pkl", "rb") as f:
         model = pickle.load(f)
@@ -13,6 +12,7 @@ def load_model_components():
     with open("label_encoders.pkl", "rb") as f:
         label_encoders = pickle.load(f)
     return model, scaler, label_encoders
+
 
 # ✅ Define feature order
 FEATURE_NAMES = [
