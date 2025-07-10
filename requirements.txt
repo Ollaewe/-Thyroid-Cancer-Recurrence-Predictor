@@ -1,9 +1,7 @@
-streamlit
 pandas
 scikit-learn
 streamlit
 pandas
 numpy
-scikit-learn
 imbalanced-learn
 pickle
