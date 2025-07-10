@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import pickle
+import os
 
 # ✅ Load model components once
 @st.cache_resource
@@ -74,6 +75,7 @@ def predict(model, scaler, label_encoders, input_df):
 
 # ✅ Main App
 def main():
+    st.set_page_config(page_title="Thyroid Recurrence Predictor", layout="centered")
     st.title("🧠 Thyroid Cancer Recurrence Predictor")
     st.markdown("Enter patient details to predict the likelihood of thyroid cancer recurrence.")
 
